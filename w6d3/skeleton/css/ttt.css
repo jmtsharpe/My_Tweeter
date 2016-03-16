@@ -1,0 +1,44 @@
+body, h1, figure, ul, li {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  background: inherit;
+  font: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: 'Gentium Basic', serif;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+}
+
+li {
+  width: 90px;
+  height: 90px;
+  border: solid 5px black;
+  float: left;
+}
+
+li:hover{
+  background: rebeccapurple;
+}
+
+.game-grid {
+  width: 300px;
+  border: 5px solid black;
+  margin: 100px auto;
+}
+
+.group:after {
+  display: block;
+  content: "";
+  clear: both;
+}

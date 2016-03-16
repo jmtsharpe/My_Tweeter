@@ -1,4 +1,5 @@
 var View = function (game, $el) {
+  "";
 };
 
 View.prototype.bindEvents = function () {
