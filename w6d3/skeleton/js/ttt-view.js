@@ -21,6 +21,9 @@ View.prototype.makeMove = function ($square) {
     var mark = this.game.board.grid[pos[0]][pos[1]];
     $square.text(mark);
   }
+  if (this.game.isOver()){
+    this._finishGame();
+  }
 };
 
 View.prototype.setupBoard = function () {
@@ -35,7 +38,15 @@ View.prototype.setupBoard = function () {
   }
 };
 
-_indexToPos = function(idx){
+View.prototype._finishGame = function (){
+  if (this.game.winner()) {
+    alert(this.game.winner() + " has won!");
+  } else {
+    alert("NO ONE WINS!");
+  }
+};
+
+_indexToPos = function (idx){
   var row = Math.floor(idx / 3);
   var col = idx % 3;
 
