@@ -1,5 +1,6 @@
 var View = function (game, $el) {
   this.game = game;
+  this.$el = $el;
 };
 
 View.prototype.bindEvents = function () {
@@ -11,38 +12,25 @@ View.prototype.bindEvents = function () {
 };
 
 View.prototype.makeMove = function ($square) {
-  var $lis = $("li");
-  var idx = $lis.index($square);
+  var idx = $("li").index($square);
   var pos = _indexToPos(idx);
   if (!this.game.board.isEmptyPos(pos)){
     $("#message").text("Not a valid move!");
   } else if ( !this.game.isOver() ){
     this.game.playMove(pos);
     var mark = this.game.board.grid[pos[0]][pos[1]];
-    if ( mark === "x" ) {
-      $square.addClass("x");
-    } else {
-      $square.addClass("o");
-    }
-    $square.addClass("white");
-    $square.text(mark);
-  }
-  if (this.game.isOver()){
+    $square.addClass(mark + " white")
+           .text(mark);
+  } else {
     this._finishGame();
   }
 };
 
 View.prototype.setupBoard = function () {
-  var $message = $("<h2 id='message'></h2>");
-  var $ttt = $(".ttt");
-
-  var $gamegrid = $("<ul class='game-grid group'></ul>");
-  $gamegrid.appendTo($ttt);
-  $message.appendTo($ttt);
-
-  for ( var i=0; i < 9; i++ ) {
-    var $newLi = $("<li></li>");
-    $newLi.appendTo($gamegrid);
+  $("<ul>").addClass("game-grid group").appendTo(this.$el);
+  $("<h2>").attr('id', 'message').appendTo(this.$el);
+  for ( var i = 0; i < 9; i++ ) {
+    this.$el.find("ul").append("<li>");
   }
 };
 
