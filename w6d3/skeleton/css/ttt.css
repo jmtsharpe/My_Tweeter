@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 72px;
   font-weight: 700;
   text-align: center;
 }
@@ -23,12 +23,37 @@ h1 {
 li {
   width: 90px;
   height: 90px;
-  border: solid 5px black;
+  border: solid 5px #dddfd4;
   float: left;
+  background: #173e43;
+  font-size: 72px;
+  text-align: center;
 }
 
 li:hover{
-  background: rebeccapurple;
+  background: #fae596;
+}
+
+.x {
+  color: #173e43;
+}
+
+.o {
+  color: #3fb0ac;
+}
+
+.white {
+  background: white;
+}
+
+.winner {
+  background: #fae596;
+}
+
+h2{
+  font-size: 48px;
+  text-align: center;
+  color: black;
 }
 
 .game-grid {
