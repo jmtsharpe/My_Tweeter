@@ -27,16 +27,11 @@ UsersSearch.prototype.render = function (resp) {
   var that = this;
   that.$users.empty();
 
-  resp.forEach( function (user) {
-    var $li = $("<li>");
-    $li.append("<a href='/users/" + user.id+ "'>" + user.username + "</a>");
-    $li.append("<button class='follow-toggle' data-userid='" + user.id +"' data-followed='" + user.followed + "'></button>");
-    that.$users.append($li);
-  });
-
-  $(".follow-toggle").each(function (index, el) {
-    var toggle = new FollowToggle(el);
-  });
+  var $li = $("<li>");
+  $li.append(resp.content + " -- ");
+  $li.append("<a href='/users/" + resp.user.id+ "'>" + resp.user.username + "</a> -- ");
+  $li.append(resp.created_at);
+  that.$users.prepend($li);
 };
 
 module.exports = UsersSearch;
