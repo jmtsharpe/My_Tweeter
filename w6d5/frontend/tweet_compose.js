@@ -4,8 +4,14 @@ var TweetCompose = function (el) {
   this.$input = this.$el.find("#tweet-input");
   this.$mention = this.$el.find("#mention");
   this.$charsLeft = this.$el.find(".chars-left");
+  this.$addMention = this.$el.find(".add-mentioned-user");
+  this.bindMentions();
   this.bindChars();
   this.bindSubmit();
+};
+
+TweetCompose.prototype.addMentionedUser = function () {
+
 };
 
 TweetCompose.prototype.bindChars = function () {
